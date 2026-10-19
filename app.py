@@ -63,14 +63,15 @@ if uploaded_file is not None:
         image = image.resize((180, 180))
 
         # Conversion en tableau NumPy
-        image_array = np.array(image, dtype=np.float32)
+        import keras as k
+        image_array = k.utils.img_to_array(image)
 
         # Normalisation entre 0 et 1
-        image_array = image_array / 255.0
+        #image_array = image_array / 255.0
 
         # Ajouter la dimension du batch
         image_array = np.expand_dims(image_array, axis=0)
-
+        st.write(image_array.shape)
         # Prédiction
         prediction = model.predict(image_array, verbose=0)
 
