@@ -24,7 +24,7 @@ st.write(
 # =========================
 @st.cache_resource
 def load_model():
-    return keras.models.load_model("chest_xray_cnn.keras")
+    return keras.models.load_model("chest_xray_cnn (1).keras")
 
 try:
     model = load_model()
@@ -71,7 +71,7 @@ if uploaded_file is not None:
 
         # Ajouter la dimension du batch
         image_array = np.expand_dims(image_array, axis=0)
-        st.write(image_array.shape)
+        # st.write(image_array.shape)
         # Prédiction
         prediction = model.predict(image_array, verbose=0)
 
